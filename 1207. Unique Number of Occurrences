@@ -1,0 +1,19 @@
+#include <vector>
+#include <unordered_map>
+#include <unordered_set>
+using namespace std;
+
+bool uniqueOccurrences(vector<int>& arr) {
+    unordered_map<int, int> freq;
+    for (int num : arr) {
+        freq[num]++;
+    }
+    
+    unordered_set<int> occ;
+    for (auto& [key, val] : freq) {
+        if (occ.count(val)) return false;
+        occ.insert(val);
+    }
+    
+    return true;
+}
