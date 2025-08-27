@@ -1,0 +1,15 @@
+int longestSubarray(int* nums, int numsSize) {
+    int left =0, right =0, count=0, maxlen=0;
+    while(right<numsSize){
+        if(nums[right]==0){
+            count++;
+        }
+        while(count>1){
+            if(nums[left]==0){
+                count--;
+            }
+            left++;
+        }
+        maxlen=(right-left+1)>maxlen ? right-left+1 : maxlen;
+ right ++;   }
+return maxlen-1;}
